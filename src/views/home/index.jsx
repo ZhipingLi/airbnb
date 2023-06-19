@@ -1,29 +1,16 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo } from 'react'
 
-import reqIns from '@/services'
+import { HomeWrapper } from './style'
+import HomeBanner from './c-cpns/home-banner'
 
 const Home = memo(() => {
-  const [highScore, setHighScore] = useState({})
-  
-  useEffect(() => {
-    reqIns.get({ url: "/home/highscore" }).then(res => {
-      console.log(res);
-      setHighScore(res)
-    })
-  }, [])
-
   return (
-    <div>
-      <h2>{highScore.title}</h2>
-      <h4>{highScore.subtitle}</h4>
-      <ul>
-        {
-          highScore.list?.map(item => {
-            return <li key={item.id}>{item.name}</li>
-          })
-        }
-      </ul>
-    </div>
+    <HomeWrapper>
+      <HomeBanner/>
+      <div className="content">
+        conent
+      </div>
+    </HomeWrapper>
   )
 })
 
