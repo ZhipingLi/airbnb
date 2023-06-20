@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components"
 
 import coverImg from '@/assets/img/cover_01.jpeg'
 
