@@ -5,3 +5,21 @@ export function getHomeGoodPriceData() {
     url: "/home/goodprice"
   })
 }
+
+export function getHomeHighScoreData() {
+  return reqIns.get({
+    url: "/home/highscore"
+  })
+}
+
+export function getHomeDiscountData() {
+  return reqIns.get({
+    url: "/home/discount"
+  })
+}
+
+export function getHomeHotRecommendData() {
+  return reqIns.get({
+    url: "/home/hotrecommenddest"
+  })
+}
