@@ -9,7 +9,7 @@ const SectionFooter = memo((props) => {
   const { name } = props
   const showMessage = name ? `显示更多${name}房源` : "显示全部"
 
-  /** 跳转详情页 */
+  /** 跳转全部房源entire page*/
   const navigate = useNavigate()
   function moreClickHandle() {
     navigate("/entire")
