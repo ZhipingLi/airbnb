@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { memo } from 'react'
+import { Rate } from 'antd';
 
 import { ItemWrapper } from './style'
-import { Rate } from 'antd';
 
 const RoomItem = memo((props) => {
   const { itemData, itemWidth = "25%" } = props
