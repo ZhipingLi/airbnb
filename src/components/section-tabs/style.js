@@ -13,7 +13,7 @@ export const TabsWrapper = styled.div`
     border: 0.5px solid #D8D8D8;
     white-space: nowrap;
     cursor: pointer;
-    ${props => props.theme.mixins.boxShadow};
+    ${props => props.theme.mixins.boxShadow}
 
     &:last-child {
       margin-right: 0;

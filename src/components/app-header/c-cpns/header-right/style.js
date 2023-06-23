@@ -40,10 +40,11 @@ export const RightWrapper = styled.div`
     color: ${props => props.theme.text.primaryColor};
 
     // mixins: box shallow while hover
-    ${props => props.theme.mixins.boxShadow};
+    ${props => props.theme.mixins.boxShadow}
 
     .panel {
       position: absolute;
+      z-index: 99;
       top: 54px;
       right: 0;
       width: 240px;

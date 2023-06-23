@@ -13,7 +13,7 @@ export const CenterWrapper = styled.div`
     border-radius: 24px;
     cursor: pointer;
     
-    ${props => props.theme.mixins.boxShadow};
+    ${props => props.theme.mixins.boxShadow}
 
     .text {
       padding: 0 16px;
