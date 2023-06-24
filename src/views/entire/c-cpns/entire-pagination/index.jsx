@@ -25,7 +25,7 @@ const EntirePagination = memo(() => {
       {
         !!roomList.length && (
           <div className="info">
-            <Pagination count={totalPage} onChange={pageChangeHandle}/>
+            <Pagination page={currentPage + 1} count={totalPage} onChange={pageChangeHandle}/>
             <div className="desc">
               第 {startCount} - {endCount} 个房源，共超过 {totalCount} 个
             </div>

@@ -29,7 +29,7 @@ export const changeIsLoadingAction = isLoading => ({
  * 2. 通过offset = (currentPage - 1) * size计算出offset偏移量
  * 3. offset作为参数发起网络请求
  */
-export const fetchRoomListAction = (newPage = 0, size = 20) => {
+export const fetchRoomListAction = (newPage, size = 20) => {
   return (dispatch, getState) => {
     // 同步修改currentPage
     dispatch(changeCurrentPageAction(newPage))
