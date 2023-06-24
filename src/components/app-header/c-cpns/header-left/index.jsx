@@ -9,6 +9,7 @@ const HeaderLeft = memo(() => {
   const navigate = useNavigate()
   function logoClickHandle() {
     navigate("/home")
+    window.scrollTo(0, 0)
   }
 
   return (

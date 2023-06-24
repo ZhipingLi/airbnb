@@ -33,6 +33,7 @@ const RoomItem = memo((props) => {
   function sliderClickHandle() {
     dispatch(changeDetailInfoAction(itemData))
     navigate("/detail")
+    window.scrollTo(0, 0)
   }
 
   const pictureElement = (
