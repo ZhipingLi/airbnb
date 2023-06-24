@@ -8,7 +8,6 @@ export const PicturesWrapper = styled.div`
     height: 600px;
     background-color: #000;
 
-
     &:hover {
       .cover {
         opacity: 1 !important;

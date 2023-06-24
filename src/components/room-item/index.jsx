@@ -17,12 +17,12 @@ const RoomItem = memo((props) => {
 
   const sliderRef = useRef()
   const [selectedIndex, setSelectedIndex] = useState(0)
-  function controllClickHandle(event, isRight = true) {
+  function controllClickHandle(event, isNext = true) {
     event.stopPropagation()
     //更新图片
-    isRight ? sliderRef.current.next() : sliderRef.current.prev()
+    isNext ? sliderRef.current.next() : sliderRef.current.prev()
     // 更新indicator索引
-    let newIndex = isRight ? selectedIndex + 1 : selectedIndex - 1
+    let newIndex = isNext ? selectedIndex + 1 : selectedIndex - 1
     if (newIndex < 0) newIndex = itemData.picture_urls.length - 1
     if (newIndex > itemData.picture_urls.length - 1) newIndex = 0
     setSelectedIndex(newIndex)
