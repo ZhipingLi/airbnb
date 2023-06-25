@@ -3,19 +3,33 @@ import React, { memo, useEffect, useState } from 'react'
 import IconGlobal from '@/assets/svg/icon_global'
 import IconMenu from '@/assets/svg/icon_menu'
 import IconAvatar from '@/assets/svg/icon_avatar'
+
 import { RightWrapper } from './style'
 
 const HeaderRight = memo(() => {
   const [showPanel, setShowPanel] = useState(false)
 
   useEffect(() => {
-    const windowHandleClick = () => setShowPanel(false)
-    window.addEventListener("click", windowHandleClick, true)
+    /**
+     * 除了useCallback，闭包陷阱还会发生在其他需要传入回调函数的场景（如：DOM事件监听函数）。
+     * 
+     * useRef不会被memorized，useState、普通变量（包括两者的引用数据类型）会被memorized。
+     */
+    window.addEventListener("click", windowHandleClick)
 
     return () => {
       window.removeEventListener("click", windowHandleClick)
     }
-  }, [])
+  })
+
+  function windowHandleClick() {
+    if(showPanel) setShowPanel(false)
+  }
+
+  function profileClickHandle(event) {
+    setShowPanel(!showPanel)
+    event.stopPropagation()
+  }
 
   return (
     <RightWrapper>
@@ -27,7 +41,7 @@ const HeaderRight = memo(() => {
         </span>
       </div>
 
-      <div className="profile" onClick={e => setShowPanel(true)}>
+      <div className="profile" onClick={profileClickHandle}>
         <IconMenu/>
         <IconAvatar/>
 

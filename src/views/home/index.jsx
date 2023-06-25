@@ -33,7 +33,7 @@ const Home = memo(() => {
   /** 派发异步事件，发送网络请求 */
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(changeHeaderConfig({ isFixed: true }))
+    dispatch(changeHeaderConfig({ isFixed: true, topAlpha: true, fixedOnSearch: false }))
     dispatch(fetchHomeDataAction())
   }, [dispatch])
 

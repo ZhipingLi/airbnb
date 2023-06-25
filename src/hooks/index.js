@@ -1,5 +1,7 @@
 import useScrollTop from './useScrollTop'
+import useScrollPosition from './useScrollPostion'
 
 export {
-  useScrollTop
+  useScrollTop,
+  useScrollPosition
 }

@@ -20,7 +20,7 @@ const Entire = memo(() => {
   useEffect(() => {
     // store中存在roomList时，不再发起网络请求
     if (!roomList.length) dispatch(fetchRoomListAction(0))
-    dispatch(changeHeaderConfig({ isFixed: true }))
+    dispatch(changeHeaderConfig({ isFixed: true, topAlpha: false, fixedOnSearch: false }))
   })
 
   return (

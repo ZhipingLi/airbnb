@@ -10,8 +10,8 @@ import { changeHeaderConfig } from '@/store/modules/main'
 const Detail = memo(() => {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(changeHeaderConfig({ isFixed: false }))
-  }, [])
+    dispatch(changeHeaderConfig({ isFixed: false, topAlpha: false, fixedOnSearch: true }))
+  }, [dispatch])
 
   return (
     <DetailWrapper>

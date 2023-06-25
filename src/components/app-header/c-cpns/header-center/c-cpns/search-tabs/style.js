@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TabsWrapper = styled.div`
   display: flex;
-  color: ${props => props.theme.isAlpha ? "#fff": "#222"};
+  color: ${props => props.theme.isAlpha ? "#fff": props.theme.text.secondaryColor};
 
   .item {
     position: relative;
