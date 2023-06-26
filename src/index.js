@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from "react-redux";
@@ -15,20 +15,22 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   /**
    * conclusion:
-   * Provider > Suspense > Hash/BrowserRouter
+   * Provider > Hash/BrowserRouter > Suspense > {useRoutes(routes)}
    * 
    * explanation:
-   * <Suspense/>包裹<Provider store={store}/>会导致store(connect/useSelector)监听不到异步加载的组件发出去的changed actions；
+   * <Suspense/>包裹<Provider store={store}/>会导致异步加载的组件（import()函数引入的组件）收不到来自store(connect/useSelector)的消息发布。
    * 因为<Provider/>在组件内部使用store.subscribe(() => {...})添加订阅时，这些异步加载的组件还未渲染出来。
+   * 但渲染完成后，异步加载的组件可以通过dispatch派发changed actions修改store中的数据。
    */
   // <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <Suspense fallback="loading">
+        {/* Suspense可直接仅包裹 {useRoutes(routes)}, 以避免app-header、app-footer的重复渲染*/}
+        {/* <Suspense fallback="loading"> */}
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </Suspense>
+        {/* </Suspense> */}
       </Provider>
     </ThemeProvider>
   // </React.StrictMode>
