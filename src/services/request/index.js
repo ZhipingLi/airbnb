@@ -30,4 +30,6 @@ class Request {
   }
 }
 
-export default new Request(BASE_URL, TIMEOUT)
+const reqIns = new Request(BASE_URL, TIMEOUT)
+
+export default reqIns
